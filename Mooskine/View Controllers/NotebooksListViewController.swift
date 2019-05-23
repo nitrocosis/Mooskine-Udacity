@@ -40,7 +40,7 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setUpFetchedResultsController()
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: false)
             tableView.reloadRows(at: [indexPath], with: .fade)
@@ -109,12 +109,10 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
     }
     
     func updateEditButtonState() {
-        
-        if let sections = fetchedResultsController.sections {
-            navigationItem.rightBarButtonItem?.isEnabled = sections[0].numberOfObjects > 0
+            if let sections = fetchedResultsController.sections {
+                navigationItem.rightBarButtonItem?.isEnabled = sections[0].numberOfObjects > 0
+            }
         }
-        
-    }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
