@@ -21,6 +21,7 @@
 		297221A822946F2700201886 /* Mooskine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 297221A622946F2700201886 /* Mooskine.xcdatamodeld */; };
 		29AFF2F922998A21004C87D3 /* UpdateToAttributedStrings.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 29AFF2F822998A21004C87D3 /* UpdateToAttributedStrings.xcmappingmodel */; };
 		29AFF2FB22998AED004C87D3 /* UpdateToAttributedStringsPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AFF2FA22998AED004C87D3 /* UpdateToAttributedStringsPolicy.swift */; };
+		29AFF2FD22998EFF004C87D3 /* Pathifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AFF2FC22998EFF004C87D3 /* Pathifier.swift */; };
 		29EFA6DB22947BAB009B0139 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EFA6DA22947BAB009B0139 /* DataController.swift */; };
 		29EFA6DE2294C747009B0139 /* Notebook+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EFA6DD2294C747009B0139 /* Notebook+Extensions.swift */; };
 		29EFA6E02294C7C5009B0139 /* Note+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EFA6DF2294C7C5009B0139 /* Note+Extensions.swift */; };
@@ -59,6 +60,7 @@
 		29AFF2F72299871A004C87D3 /* Mooskine 2-2019-05-25-attributedstring.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Mooskine 2-2019-05-25-attributedstring.xcdatamodel"; sourceTree = "<group>"; };
 		29AFF2F822998A21004C87D3 /* UpdateToAttributedStrings.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UpdateToAttributedStrings.xcmappingmodel; sourceTree = "<group>"; };
 		29AFF2FA22998AED004C87D3 /* UpdateToAttributedStringsPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateToAttributedStringsPolicy.swift; sourceTree = "<group>"; };
+		29AFF2FC22998EFF004C87D3 /* Pathifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathifier.swift; sourceTree = "<group>"; };
 		29EFA6DA22947BAB009B0139 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		29EFA6DD2294C747009B0139 /* Notebook+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notebook+Extensions.swift"; sourceTree = "<group>"; };
 		29EFA6DF2294C7C5009B0139 /* Note+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Extensions.swift"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				29EFA6DA22947BAB009B0139 /* DataController.swift */,
 				29AFF2F822998A21004C87D3 /* UpdateToAttributedStrings.xcmappingmodel */,
 				29AFF2FA22998AED004C87D3 /* UpdateToAttributedStringsPolicy.swift */,
+				29AFF2FC22998EFF004C87D3 /* Pathifier.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				29EFA6DB22947BAB009B0139 /* DataController.swift in Sources */,
 				03B2699C1F2F8AA100C7433C /* NoteDetailsViewController.swift in Sources */,
 				29EFA6E02294C7C5009B0139 /* Note+Extensions.swift in Sources */,
+				29AFF2FD22998EFF004C87D3 /* Pathifier.swift in Sources */,
 				03B269A01F2F8AAD00C7433C /* Cell.swift in Sources */,
 				29AFF2FB22998AED004C87D3 /* UpdateToAttributedStringsPolicy.swift in Sources */,
 				03B2699D1F2F8AA100C7433C /* NotesListViewController.swift in Sources */,
