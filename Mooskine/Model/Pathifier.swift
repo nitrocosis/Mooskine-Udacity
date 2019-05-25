@@ -69,7 +69,7 @@ internal struct Pathifier {
         path.stroke()
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return image!
     }
     

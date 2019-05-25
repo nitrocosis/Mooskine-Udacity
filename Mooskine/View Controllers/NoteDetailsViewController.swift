@@ -7,26 +7,29 @@
 //
 
 import UIKit
+import CoreData
+
 
 class NoteDetailsViewController: UIViewController {
     /// A text view that displays a note's text
     @IBOutlet weak var textView: UITextView!
-
+    
     /// The note being displayed and edited
     var note: Note!
     var dataController: DataController!
+    var saveObserveToken: Any?
     
-
+    
     /// A closure that is run when the user asks to delete the current note
     var onDelete: (() -> Void)?
-
+    
     /// A date formatter for the view controller's title text
     let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .medium
         return df
     }()
-
+    
     /// The accessory view used when displaying the keyboard
     var keyboardToolbar: UIToolbar?
     
@@ -41,8 +44,15 @@ class NoteDetailsViewController: UIViewController {
         // keyboard toolbar configuration
         configureToolbarItems()
         configureTextViewInputAccessoryView()
+        
+        // notification observer
+        addSaveNotificationObserver()
     }
-
+    
+    deinit {
+        removeSaveNotificationsObserver()
+    }
+    
     @IBAction func deleteNote(sender: Any) {
         presentDeleteNotebookAlert()
     }
@@ -58,7 +68,7 @@ extension NoteDetailsViewController {
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: deleteHandler))
         present(alert, animated: true, completion: nil)
     }
-
+    
     func deleteHandler(alertAction: UIAlertAction) {
         onDelete?()
     }
@@ -122,19 +132,6 @@ extension NoteDetailsViewController {
     
     @IBAction func redTapped(sender: Any) {
         let newText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
-        let selectedRange = textView.selectedRange
-        let selectedText = textView.attributedText.attributedSubstring(from: selectedRange)
-        let cowText = Pathifier.makeMutableAttributedString(for: selectedText, withFont: UIFont(name: "AvenirNext-Heavy", size: 56)!, withPatternImage: #imageLiteral(resourceName: "texture-cow"))
-        
-        newText.replaceCharacters(in: selectedRange, with: cowText)
-        textView.attributedText = newText
-        textView.selectedRange = NSMakeRange(selectedRange.location, 1)
-        note.attributedText = textView.attributedText
-        try? dataController.viewContext.save()
-    }
-    
-    @IBAction func cowTapped(sender: Any) {
-        let newText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
         let attributes:[NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.red,
             .underlineStyle: 1,
@@ -146,6 +143,26 @@ extension NoteDetailsViewController {
         textView.selectedTextRange = selectedTextRange
         note.attributedText = textView.attributedText
         try? dataController.viewContext.save()
+    }
+    
+    @IBAction func cowTapped(sender: Any) {
+        let newText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
+        let selectedRange = textView.selectedRange
+        let selectedText = textView.attributedText.attributedSubstring(from: selectedRange)
+        let noteId = note.objectID
+        let backgroundContext: NSManagedObjectContext! = dataController.backgroundContext
+        
+        backgroundContext.perform {
+            let backgroundNote = backgroundContext.object(with: noteId) as! Note
+            let cowText = Pathifier.makeMutableAttributedString(for: selectedText, withFont: UIFont(name: "AvenirNext-Heavy", size: 56)!, withPatternImage: #imageLiteral(resourceName: "texture-cow"))
+            newText.replaceCharacters(in: selectedRange, with: cowText)
+           // sleep(5)
+            backgroundNote.attributedText = newText
+            try? backgroundContext.save()
+        }
+        
+        //  textView.attributedText = newText
+        // textView.selectedRange = NSMakeRange(selectedRange.location, 1)
     }
     
     // MARK: Helper methods for actions
@@ -163,3 +180,30 @@ extension NoteDetailsViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+
+extension NoteDetailsViewController {
+    
+    func addSaveNotificationObserver() {
+        removeSaveNotificationsObserver()
+        saveObserveToken = NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: dataController.viewContext, queue: nil, using: handleSaveNotification(notification:))
+        
+    }
+    
+    func removeSaveNotificationsObserver() {
+        if let token = saveObserveToken {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
+    fileprivate func reloadText() {
+        textView.attributedText = note.attributedText
+    }
+    
+    func handleSaveNotification(notification: Notification) {
+        DispatchQueue.main.async {
+            
+            self.reloadText()
+        }
+    }
+}
+
