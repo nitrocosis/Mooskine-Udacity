@@ -19,6 +19,8 @@
 		03B2699F1F2F8AAA00C7433C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B269961F2F837C00C7433C /* NoteCell.swift */; };
 		03B269A01F2F8AAD00C7433C /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B269981F2F837C00C7433C /* Cell.swift */; };
 		297221A822946F2700201886 /* Mooskine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 297221A622946F2700201886 /* Mooskine.xcdatamodeld */; };
+		29AFF2F922998A21004C87D3 /* UpdateToAttributedStrings.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 29AFF2F822998A21004C87D3 /* UpdateToAttributedStrings.xcmappingmodel */; };
+		29AFF2FB22998AED004C87D3 /* UpdateToAttributedStringsPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AFF2FA22998AED004C87D3 /* UpdateToAttributedStringsPolicy.swift */; };
 		29EFA6DB22947BAB009B0139 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EFA6DA22947BAB009B0139 /* DataController.swift */; };
 		29EFA6DE2294C747009B0139 /* Notebook+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EFA6DD2294C747009B0139 /* Notebook+Extensions.swift */; };
 		29EFA6E02294C7C5009B0139 /* Note+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EFA6DF2294C7C5009B0139 /* Note+Extensions.swift */; };
@@ -54,6 +56,9 @@
 		03B269961F2F837C00C7433C /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		03B269981F2F837C00C7433C /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		297221A722946F2700201886 /* Mooskine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mooskine.xcdatamodel; sourceTree = "<group>"; };
+		29AFF2F72299871A004C87D3 /* Mooskine 2-2019-05-25-attributedstring.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Mooskine 2-2019-05-25-attributedstring.xcdatamodel"; sourceTree = "<group>"; };
+		29AFF2F822998A21004C87D3 /* UpdateToAttributedStrings.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UpdateToAttributedStrings.xcmappingmodel; sourceTree = "<group>"; };
+		29AFF2FA22998AED004C87D3 /* UpdateToAttributedStringsPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateToAttributedStringsPolicy.swift; sourceTree = "<group>"; };
 		29EFA6DA22947BAB009B0139 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		29EFA6DD2294C747009B0139 /* Notebook+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notebook+Extensions.swift"; sourceTree = "<group>"; };
 		29EFA6DF2294C7C5009B0139 /* Note+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Extensions.swift"; sourceTree = "<group>"; };
@@ -147,6 +152,8 @@
 				29EFA6DC2294C723009B0139 /* Managed Object Extensions */,
 				297221A622946F2700201886 /* Mooskine.xcdatamodeld */,
 				29EFA6DA22947BAB009B0139 /* DataController.swift */,
+				29AFF2F822998A21004C87D3 /* UpdateToAttributedStrings.xcmappingmodel */,
+				29AFF2FA22998AED004C87D3 /* UpdateToAttributedStringsPolicy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,12 +315,14 @@
 			files = (
 				039B105C1EDC5469002EA94F /* AppDelegate.swift in Sources */,
 				03B2699E1F2F8AAA00C7433C /* NotebookCell.swift in Sources */,
+				29AFF2F922998A21004C87D3 /* UpdateToAttributedStrings.xcmappingmodel in Sources */,
 				297221A822946F2700201886 /* Mooskine.xcdatamodeld in Sources */,
 				03B2699B1F2F8AA100C7433C /* NotebooksListViewController.swift in Sources */,
 				29EFA6DB22947BAB009B0139 /* DataController.swift in Sources */,
 				03B2699C1F2F8AA100C7433C /* NoteDetailsViewController.swift in Sources */,
 				29EFA6E02294C7C5009B0139 /* Note+Extensions.swift in Sources */,
 				03B269A01F2F8AAD00C7433C /* Cell.swift in Sources */,
+				29AFF2FB22998AED004C87D3 /* UpdateToAttributedStringsPolicy.swift in Sources */,
 				03B2699D1F2F8AA100C7433C /* NotesListViewController.swift in Sources */,
 				29EFA6DE2294C747009B0139 /* Notebook+Extensions.swift in Sources */,
 				03B2699F1F2F8AAA00C7433C /* NoteCell.swift in Sources */,
@@ -565,9 +574,10 @@
 		297221A622946F2700201886 /* Mooskine.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				29AFF2F72299871A004C87D3 /* Mooskine 2-2019-05-25-attributedstring.xcdatamodel */,
 				297221A722946F2700201886 /* Mooskine.xcdatamodel */,
 			);
-			currentVersion = 297221A722946F2700201886 /* Mooskine.xcdatamodel */;
+			currentVersion = 29AFF2F72299871A004C87D3 /* Mooskine 2-2019-05-25-attributedstring.xcdatamodel */;
 			path = Mooskine.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
